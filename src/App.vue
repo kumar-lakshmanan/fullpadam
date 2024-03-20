@@ -26,23 +26,10 @@
   
 </template>
 
-<!-- <script setup>
-import { NodeService } from '@/service/NodeService';
-import { ref, onMounted } from 'vue';
-
-const nodes = ref(null);
-
-onMounted(() => {
-  NodeService.getTreeNodes().then((data) => (nodes.value = data));
-});
-
-</script> -->
 
 <script>
 import FlowDesigner from './components/FlowDesigner.vue'
 import Sidebar from './components/Sidebar.vue'
-import { NodeService } from '@/service/NodeService';
-//import { ref, onMounted } from 'vue';
 
 export default {
   name: 'App',
@@ -53,14 +40,13 @@ export default {
   },
 
   mounted() {
-        NodeService.getTreeNodes().then((data) => (this.nodes = data));
+       
     },
   
   data() {
         return {
             nodes: null,
-            expandedKeys: {}
-            
+            expandedKeys: {}            
         };
     },
   computed:{

@@ -12,7 +12,6 @@ const app = createApp(App)
 
 app.use(PrimeVue);
 
-
 app.component('Button', Button);
 app.component('Tree', Tree);
 app.component('Listbox', Listbox);

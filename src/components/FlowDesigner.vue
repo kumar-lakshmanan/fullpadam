@@ -44,13 +44,12 @@ import useDragAndDrop from '../service/useDnD.js'
 import { Background } from '@vue-flow/background'
 import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
-import { initialEdges, initialNodes } from './initial-elements.js'
 const { onDragOver, onDrop, onDragLeave } = useDragAndDrop()
 import Icon from './IconGroup.vue'
 
 const { onPaneReady, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = useVueFlow()
-const nodes = ref(initialNodes)
-const edges = ref(initialEdges)
+const nodes = ref([])
+const edges = ref([])
 const dark = ref(false)
 onPaneReady(({ fitView }) => {
   fitView()
