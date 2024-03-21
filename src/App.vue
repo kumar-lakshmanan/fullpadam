@@ -1,42 +1,56 @@
 <template>
-  <Splitter style="height: 100vh" layout="vertical">
-      <SplitterPanel class="flex align-items-center justify-content-center" :size="5">
-        <img align="left" alt="Vue logo" width="50px" height="50px" src="./assets/logo.png">
+  <Splitter style="height: 100vh" layout="vertical" :gutterSize="2" :pt="{
+        gutterHandler: {
+//          style: 'display: none'
+          style: 'pointer-events: none'
+        },
+        gutter: {
+//          style: 'display: none'
+          style: 'pointer-events: none'
+        },        
+      }">      
+      <SplitterPanel class="flex align-items-center justify-content-center" :size="5" :minSize="5">
+          <HeaderBar/>
       </SplitterPanel>
-      <SplitterPanel class="flex align-items-center justify-content-center" :size="85"> 
-
-        <Splitter>
-            <SplitterPanel class="flex align-items-center justify-content-center" :size="20"> 
-
-                <Sidebar/>
-
+      <SplitterPanel class="flex align-items-center justify-content-center" :size="95"> 
+        <Splitter :gutterSize="2">
+            <SplitterPanel class="flex align-items-center justify-content-center" :size="10" :minSize="10"> 
+                <PaletteBar/>
             </SplitterPanel>
-            <SplitterPanel class="flex align-items-center justify-content-center" :size="80" @drop="handleDrop"> 
-
-                <FlowDesigner/>   
-
+            <SplitterPanel class="flex align-items-center justify-content-center" :size="75"> 
+              <Splitter style="height: 100vh" layout="vertical" :gutterSize="2">
+                <SplitterPanel class="flex align-items-center justify-content-center" :size="85"> 
+                  <FlowDesigner/>   
+                </SplitterPanel>
+                <SplitterPanel class="flex align-items-center justify-content-center" :size="15" :minSize="10">
+                  <LogBar/>
+                </SplitterPanel> 
+              </Splitter>
+            </SplitterPanel>
+            <SplitterPanel class="flex align-items-center justify-content-center" :size="15"> 
+                <PropertyBar/>
             </SplitterPanel>
         </Splitter>
-        
-      </SplitterPanel>
-      <SplitterPanel class="flex align-items-center justify-content-center" :size="10"> 
-        <Button label="Submit" />  
       </SplitterPanel>
   </Splitter>
-  
 </template>
-
 
 <script>
 import FlowDesigner from './components/FlowDesigner.vue'
-import Sidebar from './components/Sidebar.vue'
+import PaletteBar from './components/PaletteBar.vue'
+import PropertyBar from './components/PropertyBar.vue';
+import LogBar from './components/LogBar.vue';
+import HeaderBar from './components/HeaderBar.vue';
 
 export default {
   name: 'App',
 
   components: {
-    Sidebar,
+    PaletteBar,
     FlowDesigner,
+    PropertyBar,
+    LogBar,
+    HeaderBar
   },
 
   mounted() {
@@ -53,47 +67,10 @@ export default {
 
     },
   methods: {
-          onDrag(event) {
-            event.preventDefault();
-            console.log("drag start")
-            console.log(event.target)
-            console.log("drag start----")
-          },    
 
-          handleDrop(event){
-            event.preventDefault();
-            console.log("tset")
-            console.log(event.composedPath())
-            console.log(event.type)
-            console.log("tset--")
-            console.log(event.target)
-            console.log(event.dataTransfer)
-            console.log(event.dataTransfer.getData("text"))
-          },
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
-
-            this.expandedKeys = { ...this.expandedKeys };
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            if (node.children && node.children.length) {
-                this.expandedKeys[node.key] = true;
-
-                for (let child of node.children) {
-                    this.expandNode(child);
-                }
-            }
-        }
-    }  
-  
+    }   
 
 }
-
 
 </script>
 

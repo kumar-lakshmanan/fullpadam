@@ -45,7 +45,7 @@ import { Background } from '@vue-flow/background'
 import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
 const { onDragOver, onDrop, onDragLeave } = useDragAndDrop()
-import Icon from './IconGroup.vue'
+import Icon from './supportive/IconGroup.vue'
 
 const { onPaneReady, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = useVueFlow()
 const nodes = ref([])

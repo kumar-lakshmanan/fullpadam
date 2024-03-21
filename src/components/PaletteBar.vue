@@ -14,5 +14,4 @@ const { onDragStart } = useDragAndDrop()
       <div class="vue-flow__node-output" :draggable="true" @dragstart="onDragStart($event, 'output')">Output Node</div>
     </div>
   </aside>
-
 </template>
