@@ -8,7 +8,9 @@ npm i @vue-flow/minimap
 npm i @vue-flow/node-resizer
 npm i @vue-flow/node-toolbar
 
- npm i --save-dev @vue-flow/core @vue-flow/background @vue-flow/controls @vue-flow/minimap @vue-flow/node-resizer @vue-flow/node-toolbar
+npm i --save-dev @vue-flow/core @vue-flow/background @vue-flow/controls @vue-flow/minimap @vue-flow/node-resizer @vue-flow/node-toolbar
+
+```
 
 ## Dev Startup
 ```
