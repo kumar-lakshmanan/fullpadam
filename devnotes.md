@@ -14,3 +14,4 @@ npm i @vue-flow/node-toolbar
 ```
 
 vue create fullpadam
+
