@@ -8,9 +8,7 @@
         <!-- Your menu content here -->
     </div>
     <div>
-        
-        <sl-color-picker></sl-color-picker>
-        
+        <sl-color-picker class="pickers"></sl-color-picker>
     </div>
   </div>
 
@@ -54,6 +52,15 @@ html, body,
   color: #2c3e50;
   padding: 0;
   overflow: hidden; 
+}
+.pickers::part(base){
+  z-index: 9999999;
+  background: #000;
+}
+
+.vue-flow {
+  z-index: 0;
+  
 }
 
 .vue-flow__minimap {
