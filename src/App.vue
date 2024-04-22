@@ -60,7 +60,6 @@ html, body,
 
 .vue-flow {
   z-index: 0;
-  
 }
 
 .vue-flow__minimap {
